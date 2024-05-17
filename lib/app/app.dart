@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:effective_mobile_task/app/routes.dart';
 
-import '../features/search/domain/bloc/search_flights_bloc.dart';
+import '../features/search/domain/bloc/search_flights/search_flights_bloc.dart';
 
 
 class App extends StatelessWidget {

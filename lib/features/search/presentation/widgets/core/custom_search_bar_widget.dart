@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../domain/bloc/search_info/search_info_bloc.dart';
+
 class CustomSearchBarWidget extends StatelessWidget {
-  final TextEditingController fromTextEditingController;
-  final TextEditingController toTextEditingController;
 
   const CustomSearchBarWidget(
-      {super.key, required this.fromTextEditingController, required this.toTextEditingController});
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
+    final searchInfoBloc = context.read<SearchInfoBloc>();
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 47, 16, 0),
       padding: const EdgeInsets.all(8),
@@ -40,7 +42,7 @@ class CustomSearchBarWidget extends StatelessWidget {
             child: Column(
               children: [
                 TextField(
-                  controller: fromTextEditingController,
+                  controller: searchInfoBloc.fromTextEditingController,
                   cursorColor: Colors.white,
                   style: const TextStyle(
                     color: Colors.white,

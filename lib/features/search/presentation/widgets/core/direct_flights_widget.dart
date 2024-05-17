@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../data/api/model/search_flights_get_model.dart';
-import '../../../domain/bloc/search_flights_bloc.dart';
+import '../../../domain/bloc/search_flights/search_flights_bloc.dart';
 
 class DirectFlightsWidget extends StatefulWidget {
   const DirectFlightsWidget({super.key});

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/tickets/domain/model/tickets_route_params.dart';
-import '../features/tickets/presentation/widgets/tickets_screen.dart';
+import '../features/tickets/presentation/tickets_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -23,7 +23,7 @@ final GoRouter route = GoRouter(navigatorKey: _rootNavigatorKey, routes: [
   GoRoute(
       path: '/tickets',
       builder: (context, state) {
-        TicketsRouteParams ticketsRouteParams = state.extra as TicketsRouteParams;
-        return TicketsScreen(ticketsRouteParams: ticketsRouteParams);
+        //TicketsRouteParams ticketsRouteParams = state.extra as TicketsRouteParams;
+        return TicketsScreen();
       }),
 ]);

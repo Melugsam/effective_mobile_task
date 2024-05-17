@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 
-import '../../data/api/model/search_flights_get_model.dart';
-import '../../data/api/service/search_flights_api_service.dart';
+import '../../../data/api/model/search_flights_get_model.dart';
+import '../../../data/api/service/search_flights_api_service.dart';
 
 
 part 'search_flights_event.dart';

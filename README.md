@@ -1,0 +1,2 @@
+#effective_mobile_task
+Черкасов Аркадий Дмитриевич

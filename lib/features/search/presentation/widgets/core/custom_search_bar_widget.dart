@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../domain/bloc/search_info/search_info_bloc.dart';
 
@@ -30,10 +31,13 @@ class CustomSearchBarWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          SvgPicture.asset(
-            'assets/svg/search_arrow_back.svg',
-            width: 24,
-            height: 24,
+          InkWell(
+            onTap: () => context.go("/"),
+            child: SvgPicture.asset(
+              'assets/svg/search_arrow_back.svg',
+              width: 24,
+              height: 24,
+            ),
           ),
           const SizedBox(
             width: 16,
@@ -72,10 +76,10 @@ class CustomSearchBarWidget extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        String fromText = fromTextEditingController.text;
-                        String toText = toTextEditingController.text;
-                        fromTextEditingController.text = toText;
-                        toTextEditingController.text = fromText;
+                        String fromText = searchInfoBloc.fromTextEditingController.text;
+                        String toText = searchInfoBloc.toTextEditingController.text;
+                        searchInfoBloc.fromTextEditingController.text = toText;
+                        searchInfoBloc.toTextEditingController.text = fromText;
                       },
                     ),
                   ),
@@ -85,7 +89,7 @@ class CustomSearchBarWidget extends StatelessWidget {
                   height: 1,
                 ),
                 TextField(
-                  controller: toTextEditingController,
+                  controller: searchInfoBloc.toTextEditingController,
                   cursorColor: Colors.white,
                   style: const TextStyle(
                     color: Colors.white,
@@ -117,7 +121,7 @@ class CustomSearchBarWidget extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        toTextEditingController.clear();
+                        searchInfoBloc.toTextEditingController.clear();
                       },
                     ),
                   ),

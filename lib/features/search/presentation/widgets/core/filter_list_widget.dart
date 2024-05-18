@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+
+import '../../../domain/bloc/search_info/search_info_bloc.dart';
 
 class FilterListWidget extends StatefulWidget {
   const FilterListWidget({super.key});
@@ -13,6 +16,8 @@ class _FilterListWidgetState extends State<FilterListWidget> {
   String currentDate = DateFormat('d MMM, E').format(DateTime.now());
   @override
   Widget build(BuildContext context) {
+    final searchInfoBloc = context.read<SearchInfoBloc>();
+    searchInfoBloc.date=currentDate.toString();
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       height: 50,
@@ -28,9 +33,6 @@ class _FilterListWidgetState extends State<FilterListWidget> {
                 lastDate: DateTime(2030),
               );
               // дата меняется и сохраняется у следующего контейнера
-              if (pickedDate != null) {
-                print('Выбранная дата: $pickedDate');
-              }
             },
             child: Container(
               decoration: BoxDecoration(
@@ -79,6 +81,7 @@ class _FilterListWidgetState extends State<FilterListWidget> {
                 if (pickedDate != null) {
                   setState(() {
                     currentDate = DateFormat('d MMM, E').format(pickedDate);
+                    searchInfoBloc.date=currentDate.toString();
                   });
                 }
               },

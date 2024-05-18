@@ -6,14 +6,14 @@ part 'search_info_state.dart';
 
 class SearchInfoBloc extends Bloc<SearchInfoEvent, SearchInfoState> {
   TextEditingController fromTextEditingController = TextEditingController();
-  TextEditingController? toTextEditingController;
+  TextEditingController toTextEditingController = TextEditingController();
   String? date;
   SearchInfoBloc() : super(SearchInfoInitial()) {
     on<UpdateFromTextEvent>((event, emit) {
-      fromTextEditingController=event.fromTextEditingController;
+      fromTextEditingController.text=event.fromTextEditingControllerText;
     });
     on<UpdateToTextEvent>((event, emit) {
-      toTextEditingController=event.toTextEditingController;
+      toTextEditingController.text=event.toTextEditingControllerText;
     });
     on<UpdateDateInfoEvent>((event, emit) {
       date=event.date;

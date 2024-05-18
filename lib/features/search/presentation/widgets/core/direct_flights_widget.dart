@@ -93,7 +93,7 @@ class _DirectFlightsWidgetState extends State<DirectFlightsWidget> {
                                     Row(
                                       children: [
                                         Text(
-                                          "${offer.price.value.toString()} ₽",
+                                          "${formatPriceWithSpaces(offer.price.value.toString())} ₽",
                                           style: const TextStyle(
                                             color: Color.fromRGBO(34, 97, 188, 1),
                                             fontWeight: FontWeight.w500,
@@ -168,5 +168,17 @@ class _DirectFlightsWidgetState extends State<DirectFlightsWidget> {
       default:
         return Colors.black;
     }
+  }
+
+  String formatPriceWithSpaces(String price) {
+    String reversed = price.split('').reversed.join('');
+    StringBuffer formatted = StringBuffer();
+    for (int i = 0; i < reversed.length; i++) {
+      if (i > 0 && i % 3 == 0) {
+        formatted.write(' ');
+      }
+      formatted.write(reversed[i]);
+    }
+    return formatted.toString().split('').reversed.join('');
   }
 }

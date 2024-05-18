@@ -3,15 +3,15 @@ part of 'search_info_bloc.dart';
 sealed class SearchInfoEvent {}
 
 class UpdateFromTextEvent extends SearchInfoEvent {
-  final TextEditingController fromTextEditingController;
+  final String fromTextEditingControllerText;
 
-  UpdateFromTextEvent(this.fromTextEditingController);
+  UpdateFromTextEvent(this.fromTextEditingControllerText);
 }
 
 class UpdateToTextEvent extends SearchInfoEvent {
-  final TextEditingController toTextEditingController;
+  final String toTextEditingControllerText;
 
-  UpdateToTextEvent(this.toTextEditingController);
+  UpdateToTextEvent(this.toTextEditingControllerText);
 }
 
 class UpdateDateInfoEvent extends SearchInfoEvent {

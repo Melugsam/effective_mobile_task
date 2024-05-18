@@ -7,11 +7,8 @@ import '../../../../search/domain/bloc/search_info/search_info_bloc.dart';
 import '../core/list_advice_widget.dart';
 import '../core/list_popular_widget.dart';
 
-void showModal(
-    BuildContext context,
-    SearchInfoBloc searchInfoBloc,
-    Function(String) saveLastTextInput)
-{
+void showModal(BuildContext context, SearchInfoBloc searchInfoBloc,
+    Function(String) saveLastTextInput) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -75,11 +72,12 @@ void showModal(
                           ),
                           border: InputBorder.none,
                           filled: false,
-                          prefixIcon: SvgPicture.asset(
-                            'assets/svg/modal_plane.svg',
-                            width: 24,
-                            height: 24,
-                            fit: BoxFit.cover,
+                          prefixIcon: Align(
+                            widthFactor: 0.5,
+                            heightFactor: 0.5,
+                            child: SvgPicture.asset(
+                              'assets/svg/modal_plane.svg',
+                            ),
                           ),
                         ),
                       ),
@@ -108,10 +106,12 @@ void showModal(
                           ),
                           border: InputBorder.none,
                           filled: false,
-                          prefixIcon: SvgPicture.asset(
-                            'assets/svg/menu_search.svg',
-                            height: 5,
-                            width: 5,
+                          prefixIcon: Align(
+                            widthFactor: 0.5,
+                            heightFactor: 0.5,
+                            child: SvgPicture.asset(
+                              'assets/svg/menu_search.svg',
+                            ),
                           ),
                           suffixIcon: IconButton(
                             icon: SizedBox(
@@ -138,7 +138,9 @@ void showModal(
                 const SizedBox(
                   height: 24,
                 ),
-                ListAdvice(searchInfoBloc: searchInfoBloc,),
+                ListAdvice(
+                  searchInfoBloc: searchInfoBloc,
+                ),
                 const SizedBox(
                   height: 30,
                 ),

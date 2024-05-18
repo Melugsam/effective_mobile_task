@@ -137,7 +137,14 @@ class ListAdvice extends StatelessWidget {
               ],
             ),
           ),
-          actions: <Widget>[
+          actions:[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pop();
+              },
+              child: const Text('Вернуться на пред. экран', style: TextStyle(color: Colors.white),),
+            ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();

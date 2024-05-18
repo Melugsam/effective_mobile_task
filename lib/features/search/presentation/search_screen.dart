@@ -1,5 +1,6 @@
 import 'package:effective_mobile_task/features/search/presentation/widgets/core/custom_search_bar_widget.dart';
 import 'package:effective_mobile_task/features/search/presentation/widgets/core/filter_list_widget.dart';
+import 'package:effective_mobile_task/features/search/presentation/widgets/core/price_subscription_widget.dart';
 import 'package:effective_mobile_task/features/search/presentation/widgets/core/show_tickets_button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,8 @@ class _SearchScreenState extends State<SearchScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 23, horizontal: 16),
                 child: ShowTicketsButtonWidget(),
-              )
+              ),
+              PriceSubscriptionWidget()
             ],
           ),
         ),
